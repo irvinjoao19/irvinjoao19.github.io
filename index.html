@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Irvin Gongora Hernandez — Mobile Software Engineer</title>
+<meta name="description" content="Ingeniero de software mobile en Lima, Perú. Kotlin, Kotlin Multiplatform y Flutter." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --bg:#0B1220; --bg-2:#0F1A2E; --card:#121F37; --card-2:#16243F;
+    --text:#EAF1FB; --muted:#90A0BB; --dim:#5E6E8A;
+    --blue:#4AA8FF; --blue-2:#54C5F8; --blue-deep:#1B7FE0;
+    --cyan:#3AE0D0; --amber:#F2B45A;
+    --line:rgba(255,255,255,.09); --line-2:rgba(255,255,255,.06);
+    --radius:16px; --maxw:1000px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  body{
+    background:
+      radial-gradient(900px 500px at 50% -8%, rgba(74,168,255,.16), transparent 60%),
+      radial-gradient(700px 400px at 90% 10%, rgba(58,224,208,.08), transparent 55%),
+      var(--bg);
+    color:var(--text);
+    font-family:"Inter",system-ui,sans-serif;line-height:1.65;
+    -webkit-font-smoothing:antialiased;overflow-x:hidden;
+  }
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 22px}
+  .mono{font-family:"JetBrains Mono",monospace}
+  .eyebrow{font-family:"JetBrains Mono",monospace;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--blue-2)}
+  a:focus-visible,button:focus-visible{outline:2px solid var(--blue-2);outline-offset:3px;border-radius:6px}
+
+  .lang-es .en{display:none}
+  .lang-en .es{display:none}
+
+  .topbar{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--bg) 80%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line-2)}
+  .topbar-in{display:flex;align-items:center;justify-content:space-between;height:58px}
+  .brand{font-family:"Space Grotesk",sans-serif;font-weight:700;letter-spacing:-.01em}
+  .brand b{color:var(--blue-2)}
+  .lang-switch{display:inline-flex;border:1px solid var(--line);border-radius:999px;overflow:hidden;font-family:"JetBrains Mono",monospace;font-size:.76rem}
+  .lang-switch button{background:transparent;border:0;color:var(--muted);padding:6px 13px;cursor:pointer;transition:background .15s,color .15s}
+  .lang-switch button.active{background:var(--blue);color:#04101f;font-weight:600}
+
+  .hero{text-align:center;padding:68px 0 56px}
+  .avatar{width:124px;height:124px;border-radius:50%;margin:0 auto 22px;position:relative;background:linear-gradient(135deg,var(--blue),var(--cyan));padding:3px}
+  .avatar img{width:100%;height:100%;border-radius:50%;object-fit:cover;display:block;background:var(--card)}
+  .avatar .ph{width:100%;height:100%;border-radius:50%;background:var(--card-2);display:flex;align-items:center;justify-content:center;font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:2.4rem;color:var(--blue-2)}
+  .hero h1{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:clamp(2rem,5vw,3rem);letter-spacing:-.02em;margin:6px 0 12px}
+  .role{font-family:"JetBrains Mono",monospace;font-size:.85rem;color:var(--blue-2);letter-spacing:.04em}
+  .hero .tag{color:var(--muted);max-width:46ch;margin:16px auto 0;font-size:1.06rem}
+  .hero .tag .hl{color:var(--text);font-weight:600}
+
+  .socials{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin:26px 0 8px}
+  .socials a{width:42px;height:42px;border-radius:12px;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;color:var(--muted);background:var(--bg-2);transition:transform .15s,border-color .15s,color .15s,background .15s}
+  .socials a:hover{transform:translateY(-3px);color:var(--text);border-color:var(--blue);background:var(--card)}
+  .socials svg{width:19px;height:19px;fill:currentColor}
+  .hero-cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:22px}
+  .btn{font-family:"JetBrains Mono",monospace;font-size:.84rem;font-weight:500;padding:11px 20px;border-radius:999px;display:inline-flex;align-items:center;gap:8px;transition:transform .15s,background .15s,box-shadow .15s}
+  .btn:hover{transform:translateY(-2px)}
+  .btn-primary{background:linear-gradient(135deg,var(--blue),var(--blue-deep));color:#04101f;font-weight:600;box-shadow:0 10px 26px -10px var(--blue)}
+  .btn-ghost{border:1px solid var(--line);color:var(--text);background:var(--bg-2)}
+  .btn-ghost:hover{border-color:var(--blue)}
+
+  section{padding:56px 0;border-top:1px solid var(--line-2)}
+  .sec-head{text-align:center;margin-bottom:34px}
+  .sec-head h2{font-family:"Space Grotesk",sans-serif;font-size:clamp(1.5rem,3.2vw,2rem);letter-spacing:-.02em;font-weight:600;margin-top:8px}
+  .sec-head p{color:var(--muted);max-width:52ch;margin:8px auto 0}
+  .about-text{font-size:1.12rem;color:#C7D3E6;max-width:60ch;margin:0 auto;text-align:center}
+  .about-text em{color:var(--amber);font-style:normal;font-weight:500}
+  .about-text strong{color:var(--text);font-weight:600}
+
+  .codewrap{max-width:560px;margin:30px auto 0}
+  .code-card{background:#08130F;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;font-family:"JetBrains Mono",monospace;box-shadow:0 30px 60px -34px rgba(0,0,0,.7)}
+  .code-top{display:flex;align-items:center;gap:7px;padding:12px 15px;background:#0C1B16;border-bottom:1px solid var(--line-2)}
+  .dot{width:11px;height:11px;border-radius:50%}.dot.r{background:#E5917A}.dot.y{background:#E8C06A}.dot.g{background:#7FBFA0}
+  .code-file{margin-left:8px;color:#6f8a82;font-size:.76rem}
+  .code-body{padding:16px;font-size:.8rem;line-height:1.9;color:#D7E4DF;overflow-x:auto}
+  .code-body .ln{display:grid;grid-template-columns:20px 1fr;gap:12px}
+  .code-body .num{color:#33514a;text-align:right;user-select:none}
+  .k{color:#5FD0B6}.fn{color:#9FD0F0}.c{color:#7A938C;font-style:italic}
+  .note{color:#E8B65A;font-size:.7rem;border-left:2px solid #E8B65A;padding-left:9px;margin:3px 0 3px 32px}
+
+  /* clean code before/after */
+  .cc-wrap{max-width:560px;margin:30px auto 0;display:grid;gap:14px}
+  .cc-cap{text-align:center;color:var(--muted);font-size:.86rem;margin-top:4px}
+  .cc-block{background:#08130F;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;font-family:"JetBrains Mono",monospace}
+  .cc-head{display:flex;align-items:center;gap:7px;padding:9px 15px;font-size:.74rem;letter-spacing:.05em;border-bottom:1px solid var(--line-2);font-weight:500}
+  .cc-bad .cc-head{color:#E5917A;background:rgba(229,145,122,.08)}
+  .cc-good .cc-head{color:#7FBFA0;background:rgba(127,191,160,.09)}
+  .cc-body{padding:13px 16px;font-size:.82rem;line-height:1.95;color:#D7E4DF;overflow-x:auto}
+  .cc-bad .cc-body{opacity:.8}
+
+  .cards{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+  .notes-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .card{background:linear-gradient(180deg,var(--card),var(--bg-2));border:1px solid var(--line);border-radius:var(--radius);padding:22px;display:flex;flex-direction:column;gap:9px;transition:transform .18s,border-color .18s,box-shadow .18s}
+  .card:hover{transform:translateY(-4px);border-color:var(--blue);box-shadow:0 22px 44px -28px rgba(74,168,255,.5)}
+  .kind{font-family:"JetBrains Mono",monospace;font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--amber)}
+  .card h3{font-family:"Space Grotesk",sans-serif;font-size:1.12rem;font-weight:600}
+  .card p{color:var(--muted);font-size:.92rem;flex:1}
+  .tags{display:flex;flex-wrap:wrap;gap:6px}
+  .tag{font-family:"JetBrains Mono",monospace;font-size:.7rem;color:var(--blue-2);background:rgba(74,168,255,.1);border-radius:6px;padding:3px 8px}
+  .card-link{font-family:"JetBrains Mono",monospace;font-size:.8rem;color:var(--text);font-weight:500;display:inline-flex;gap:6px;transition:gap .15s,color .15s}
+  .card-link:hover{gap:11px;color:var(--blue-2)}
+  .card.add{border-style:dashed;align-items:center;justify-content:center;text-align:center;color:var(--dim);min-height:120px}
+
+  .stack{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;max-width:660px;margin:0 auto}
+  .chip{background:var(--bg-2);border:1px solid var(--line);border-radius:999px;padding:8px 16px;font-size:.88rem;font-weight:500;color:#C7D3E6}
+
+  .contact{text-align:center}
+  .contact h2{font-family:"Space Grotesk",sans-serif;font-size:clamp(1.7rem,4vw,2.4rem);font-weight:600;letter-spacing:-.02em;margin-bottom:12px}
+  .contact p{color:var(--muted);max-width:44ch;margin:0 auto 24px}
+  footer{border-top:1px solid var(--line-2);padding:24px 0;text-align:center;color:var(--dim);font-size:.82rem}
+  footer .socials{margin:0 0 14px}
+
+  .reveal{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease}
+  .reveal.in{opacity:1;transform:none}
+  @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
+
+  /* top nav links */
+  .topnav{display:flex;gap:24px;align-items:center}
+  .topnav a{font-size:.85rem;color:var(--muted);transition:color .15s}
+  .topnav a:hover{color:var(--text)}
+
+  /* AI / agents section */
+  .ai-diagram{max-width:760px;margin:0 auto 34px;background:linear-gradient(180deg,var(--card),var(--bg-2));border:1px solid var(--line);border-radius:var(--radius);padding:22px 16px}
+  .ai-diagram svg{width:100%;height:auto;display:block}
+  .ai-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;max-width:760px;margin:0 auto}
+  .ai-card{background:linear-gradient(180deg,var(--card),var(--bg-2));border:1px solid var(--line);border-radius:var(--radius);padding:20px;display:flex;flex-direction:column;gap:8px;transition:transform .18s,border-color .18s,box-shadow .18s}
+  .ai-card:hover{transform:translateY(-4px);border-color:var(--blue);box-shadow:0 22px 44px -28px rgba(74,168,255,.5)}
+  .ai-card .ic{width:38px;height:38px;border-radius:10px;background:rgba(74,168,255,.12);display:flex;align-items:center;justify-content:center;font-family:"JetBrains Mono",monospace;color:var(--blue-2);font-size:1.05rem;font-weight:600}
+  .ai-card h3{font-family:"Space Grotesk",sans-serif;font-size:1.06rem;font-weight:600}
+  .ai-card p{color:var(--muted);font-size:.9rem}
+
+  /* experience timeline */
+  .exp{max-width:720px;margin:0 auto;display:flex;flex-direction:column}
+  .exp-item{display:grid;grid-template-columns:140px 1fr;gap:22px;padding:20px 0;border-top:1px solid var(--line-2)}
+  .exp-item:first-child{border-top:0}
+  .exp-date{font-family:"JetBrains Mono",monospace;font-size:.78rem;color:var(--blue-2);padding-top:3px}
+  .exp-body h3{font-family:"Space Grotesk",sans-serif;font-size:1.1rem;font-weight:600}
+  .exp-body .co{color:var(--text);font-weight:500;font-size:.92rem;margin:2px 0 8px}
+  .exp-body p{color:var(--muted);font-size:.92rem;margin-bottom:8px}
+  .exp-body .tags{margin-top:4px}
+  @media (max-width:600px){.exp-item{grid-template-columns:1fr;gap:6px}}
+
+  @media (max-width:760px){
+    .cards{grid-template-columns:1fr}
+    .notes-grid{grid-template-columns:1fr}
+    .ai-grid{grid-template-columns:1fr}
+    .topnav{display:none}
+  }
+</style>
+</head>
+<body class="lang-es">
+
+<header class="topbar">
+  <div class="wrap topbar-in">
+    <a class="brand" href="#top">Irvin <b>Gongora</b></a>
+    <nav class="topnav">
+      <a href="#about"><span class="es">Sobre mí</span><span class="en">About</span></a>
+      <a href="#experience"><span class="es">Experiencia</span><span class="en">Experience</span></a>
+      <a href="#ai"><span class="es">IA</span><span class="en">AI</span></a>
+      <a href="#work"><span class="es">Proyectos</span><span class="en">Projects</span></a>
+      <a href="#notes"><span class="es">Notas</span><span class="en">Notes</span></a>
+      <a href="#contact"><span class="es">Contacto</span><span class="en">Contact</span></a>
+    </nav>
+    <div class="lang-switch" role="group" aria-label="Language / Idioma">
+      <button id="btnEs" class="active" type="button">ES</button>
+      <button id="btnEn" type="button">EN</button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero" style="border-top:0">
+    <div class="wrap reveal">
+      <div class="avatar">
+        <img src="avatar.png" alt="Irvin Gongora Hernandez" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+        <div class="ph" style="display:none">IG</div>
+      </div>
+      <p class="role">&lt; Mobile Software Engineer /&gt;</p>
+      <h1>Irvin Gongora Hernandez</h1>
+      <p class="tag">
+        <span class="es">Construyo apps con <span class="hl">Kotlin, KMP y Flutter</span> — y leo el código antes de confiar en él.</span>
+        <span class="en">I build apps with <span class="hl">Kotlin, KMP &amp; Flutter</span> — and I read code before I trust it.</span>
+      </p>
+
+      <div class="socials">
+        <a href="https://github.com/irvinjoao19" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 24 24"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.2.8-.5v-2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17 4.4 18 4.7 18 4.7c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .3.2.6.8.5 4.6-1.5 7.9-5.8 7.9-10.9C23.5 5.7 18.3.5 12 .5z"/></svg></a>
+        <a href="https://www.linkedin.com/in/igongora/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M4.98 3.5a2.5 2.5 0 11-.01 5.01A2.5 2.5 0 014.98 3.5zM3 9h4v12H3V9zm6 0h3.8v1.7h.1c.5-1 1.8-2 3.7-2 4 0 4.7 2.6 4.7 6V21h-4v-5.3c0-1.3 0-2.9-1.8-2.9s-2 1.4-2 2.8V21H9V9z"/></svg></a>
+        <a href="mailto:gongorairvin@gmail.com" aria-label="Email"><svg viewBox="0 0 24 24"><path d="M2 4h20a1 1 0 011 1v14a1 1 0 01-1 1H2a1 1 0 01-1-1V5a1 1 0 011-1zm10 7L3.5 5.8 3 6l9 5.5L21 6l-.5-.2L12 11z"/></svg></a>
+      </div>
+
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="https://www.linkedin.com/in/igongora/" target="_blank" rel="noopener"><span class="es">Conecta en LinkedIn →</span><span class="en">Connect on LinkedIn →</span></a>
+        <a class="btn btn-ghost" href="CV.pdf" target="_blank" rel="noopener"><span class="es">Ver CV</span><span class="en">View résumé</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="wrap reveal">
+      <div class="sec-head"><span class="eyebrow">01</span><h2><span class="es">Sobre mí</span><span class="en">About</span></h2></div>
+      <p class="about-text">
+        <span class="es">Soy ingeniero de software mobile, de Lima, Perú, y construyo apps para Android e iOS desde 2017. Hoy formo parte del equipo de framework mobile del <strong>BCP</strong>, donde creo bibliotecas que otros equipos reutilizan — código que tiene que ser sólido porque mucha gente depende de él.<br><br>Lo que más me importa no es solo que el código corra, sino entender <em>por qué</em> funciona: leerlo, encontrar el punto débil y explicarlo simple. Por eso también enseño Clean Code y SOLID a mi equipo. Uso IA todos los días, y buena parte del trabajo es evaluar cuándo su resultado está bien y cuándo no.</span>
+        <span class="en">I'm a mobile software engineer from Lima, Peru, building apps for Android and iOS since 2017. Today I'm part of the mobile framework team at <strong>BCP</strong>, where I build libraries other teams reuse — code that has to be solid because many people depend on it.<br><br>What I care about most isn't just making code run, but understanding <em>why</em> it works: reading it, finding the weak point, and explaining it simply. That's why I also teach Clean Code and SOLID to my team. I use AI every day, and a big part of the job is judging when its output is right and when it isn't.</span>
+      </p>
+
+      <div class="cc-wrap">
+        <div class="cc-block cc-bad">
+          <div class="cc-head">✕ <span class="es">Evitemos</span><span class="en">Avoid</span></div>
+          <div class="cc-body">
+            <div><span class="k">val</span> d = user.exp - today  <span class="c">// ¿qué es "d"?</span></div>
+            <div><span class="k">if</span> (d &lt; 7) <span class="fn">notify</span>()</div>
+          </div>
+        </div>
+        <div class="cc-block cc-good">
+          <div class="cc-head">✓ <span class="es">Hagamos</span><span class="en">Prefer</span></div>
+          <div class="cc-body">
+            <div><span class="k">val</span> daysLeft = user.exp - today</div>
+            <div><span class="k">if</span> (daysLeft &lt; 7) <span class="fn">notify</span>()</div>
+          </div>
+        </div>
+      </div>
+      <p class="cc-cap"><span class="es">El buen código se explica solo — sin necesidad de comentarios.</span><span class="en">Good code explains itself — no comments needed.</span></p>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="wrap reveal">
+      <div class="sec-head"><span class="eyebrow">02</span><h2><span class="es">Experiencia</span><span class="en">Experience</span></h2></div>
+      <div class="exp">
+        <div class="exp-item">
+          <div class="exp-date">2023 – <span class="es">Presente</span><span class="en">Present</span></div>
+          <div class="exp-body">
+            <h3><span class="es">Ingeniero de Framework Mobile</span><span class="en">Mobile Framework Engineer</span></h3>
+            <div class="co">Banco de Crédito del Perú (BCP) · Lima, Perú</div>
+            <p><span class="es">Formo parte del equipo de framework mobile del banco. Construyo bibliotecas reutilizables —networking, QR, storage, crypto, UI— que los demás squads consumen, reduciendo el tiempo y la capacidad que cada proyecto necesita.</span><span class="en">Part of the bank's mobile framework team. I build reusable libraries —networking, QR, storage, crypto, UI— that other squads consume, cutting the time and capacity each project needs.</span></p>
+            <p><span class="es">Diagnostiqué y corregí un problema de conexión en producción que impedía el login en ciertos dispositivos, corrigiendo la validación del truststore con la librería Conscrypt.</span><span class="en">Diagnosed and fixed a production connectivity issue that blocked login on certain devices, by correcting truststore validation with the Conscrypt library.</span></p>
+            <div class="tags"><span class="tag">Kotlin</span><span class="tag">KMP</span><span class="tag">Android</span><span class="tag">Framework</span></div>
+          </div>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-date">Jun 2022 – Ene 2023</div>
+          <div class="exp-body">
+            <h3><span class="es">Desarrollador Android</span><span class="en">Android Developer</span></h3>
+            <div class="co">Wally POS · Lima, Perú</div>
+            <p><span class="es">Desarrollé y mantuve un app de punto de venta (facturación y ventas) en Android con Kotlin.</span><span class="en">Built and maintained an Android point-of-sale app (invoicing and sales) with Kotlin.</span></p>
+            <div class="tags"><span class="tag">Kotlin</span><span class="tag">Android</span><span class="tag">MVVM</span></div>
+          </div>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-date">Oct 2017 – Jun 2022</div>
+          <div class="exp-body">
+            <h3><span class="es">Desarrollador Android</span><span class="en">Android Developer</span></h3>
+            <div class="co">Consultoría DSIGE (Grupo DSIGE) · Lima, Perú</div>
+            <p><span class="es">Creé apps móviles de campo para los clientes de la empresa: lectura de medidores, ventas, inspecciones y reparto. Uso intensivo de Google Maps, GPS, cámara y firma digital, con Kotlin y patrón MVVM consumiendo REST APIs.</span><span class="en">Built field mobile apps for the company's clients: meter reading, sales, inspections, and delivery. Heavy use of Google Maps, GPS, camera and digital signature, with Kotlin and MVVM consuming REST APIs.</span></p>
+            <div class="tags"><span class="tag">Kotlin</span><span class="tag">Android</span><span class="tag">MVVM</span><span class="tag">Google Maps</span><span class="tag">Retrofit</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="ai">
+    <div class="wrap reveal">
+      <div class="sec-head"><span class="eyebrow">03</span><h2><span class="es">IA &amp; Agentes</span><span class="en">AI &amp; Agents</span></h2>
+        <p><span class="es">No solo uso IA — diseño cómo los agentes planifican, usan skills y se orquestan para resolver tareas reales.</span><span class="en">I don't just use AI — I design how agents plan, use skills, and orchestrate to solve real tasks.</span></p></div>
+
+      <div class="ai-diagram">
+        <svg viewBox="0 0 760 372" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="AI orchestration diagram">
+          <defs>
+            <marker id="ah" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto" markerUnits="strokeWidth">
+              <path d="M0,0 L6,3 L0,6 Z" fill="#4AA8FF"/>
+            </marker>
+            <linearGradient id="orch" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#1B7FE0"/><stop offset="1" stop-color="#123a63"/>
+            </linearGradient>
+          </defs>
+
+          <!-- arrows orchestrator -> mid -->
+          <path d="M360,86 C300,110 200,118 162,150" fill="none" stroke="#3a597e" stroke-width="1.6" marker-end="url(#ah)"/>
+          <path d="M380,86 L380,150" fill="none" stroke="#3a597e" stroke-width="1.6" marker-end="url(#ah)"/>
+          <path d="M400,86 C460,110 560,118 598,150" fill="none" stroke="#3a597e" stroke-width="1.6" marker-end="url(#ah)"/>
+          <!-- arrows mid -> result -->
+          <path d="M160,208 C160,240 300,250 332,282" fill="none" stroke="#3a597e" stroke-width="1.6" marker-end="url(#ah)"/>
+          <path d="M380,208 L380,280" fill="none" stroke="#3a597e" stroke-width="1.6" marker-end="url(#ah)"/>
+          <path d="M600,208 C600,240 460,250 428,282" fill="none" stroke="#3a597e" stroke-width="1.6" marker-end="url(#ah)"/>
+          <!-- feedback loop -->
+          <path d="M472,306 C700,300 720,120 482,62" fill="none" stroke="#E8B65A" stroke-width="1.5" stroke-dasharray="5 5" marker-end="url(#ah)" opacity=".85"/>
+          <text x="690" y="190" fill="#E8B65A" font-family="JetBrains Mono, monospace" font-size="11" text-anchor="middle" transform="rotate(90 690 190)" class="es">evalúa y corrige</text>
+          <text x="690" y="190" fill="#E8B65A" font-family="JetBrains Mono, monospace" font-size="11" text-anchor="middle" transform="rotate(90 690 190)" class="en">evaluate &amp; refine</text>
+
+          <!-- orchestrator -->
+          <rect x="280" y="32" width="200" height="54" rx="12" fill="url(#orch)" stroke="#4AA8FF" stroke-width="1.5"/>
+          <text x="380" y="64" fill="#EAF1FB" font-family="Space Grotesk, sans-serif" font-weight="600" font-size="17" text-anchor="middle" class="es">Orquestador</text>
+          <text x="380" y="64" fill="#EAF1FB" font-family="Space Grotesk, sans-serif" font-weight="600" font-size="17" text-anchor="middle" class="en">Orchestrator</text>
+
+          <!-- mid boxes -->
+          <g font-family="JetBrains Mono, monospace" font-size="14" fill="#C7D3E6" text-anchor="middle">
+            <rect x="70" y="150" width="180" height="58" rx="12" fill="#16243F" stroke="#33507a" stroke-width="1.3"/>
+            <text x="160" y="185">Plan</text>
+            <rect x="290" y="150" width="180" height="58" rx="12" fill="#16243F" stroke="#33507a" stroke-width="1.3"/>
+            <text x="380" y="185">Skills / Tools</text>
+            <rect x="510" y="150" width="180" height="58" rx="12" fill="#16243F" stroke="#33507a" stroke-width="1.3"/>
+            <text x="600" y="185" class="es">Agentes</text>
+            <text x="600" y="185" class="en">Agents</text>
+          </g>
+
+          <!-- result -->
+          <rect x="290" y="280" width="180" height="54" rx="12" fill="#0F2420" stroke="#3AE0D0" stroke-width="1.4"/>
+          <text x="380" y="312" fill="#3AE0D0" font-family="JetBrains Mono, monospace" font-size="14" text-anchor="middle" class="es">Resultado</text>
+          <text x="380" y="312" fill="#3AE0D0" font-family="JetBrains Mono, monospace" font-size="14" text-anchor="middle" class="en">Result</text>
+        </svg>
+      </div>
+
+      <div class="ai-grid">
+        <article class="ai-card">
+          <div class="ic">&#9883;</div>
+          <h3><span class="es">Orquestación de agentes</span><span class="en">Agent orchestration</span></h3>
+          <p><span class="es">Diseño cómo un orquestador coordina varios agentes para completar una tarea de principio a fin.</span><span class="en">I design how an orchestrator coordinates multiple agents to complete a task end to end.</span></p>
+        </article>
+        <article class="ai-card">
+          <div class="ic">{ }</div>
+          <h3><span class="es">Code-driven vs prompt-driven</span><span class="en">Code-driven vs prompt-driven</span></h3>
+          <p><span class="es">Sé cuándo la lógica debe vivir en el código explícito y cuándo en la planificación del propio modelo.</span><span class="en">I know when logic belongs in explicit code and when in the model's own planning.</span></p>
+        </article>
+        <article class="ai-card">
+          <div class="ic">&#9670;</div>
+          <h3><span class="es">Skills y herramientas</span><span class="en">Skills &amp; tools</span></h3>
+          <p><span class="es">Construyo skills y herramientas modulares que los agentes pueden invocar de forma segura.</span><span class="en">I build modular skills and tools that agents can call safely.</span></p>
+        </article>
+        <article class="ai-card">
+          <div class="ic">&#10003;</div>
+          <h3><span class="es">Evaluación de resultados</span><span class="en">Output evaluation</span></h3>
+          <p><span class="es">Evalúo y corrijo lo que produce la IA en vez de confiar a ciegas — el centro de mi forma de trabajar.</span><span class="en">I judge and correct what the AI produces instead of trusting it blindly — the core of how I work.</span></p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="work">
+    <div class="wrap reveal">
+      <div class="sec-head"><span class="eyebrow">04</span><h2><span class="es">Proyectos</span><span class="en">Projects</span></h2>
+        <p><span class="es">Reemplaza estos por los tuyos reales con sus enlaces. Con uno o dos buenos basta.</span><span class="en">Replace these with your real ones and links. One or two strong projects is enough.</span></p></div>
+      <div class="cards">
+        <article class="card">
+          <span class="kind">Flutter</span>
+          <h3><span class="es">App de Finanzas Personales</span><span class="en">Personal Finance App</span></h3>
+          <p><span class="es">App de presupuesto y educación financiera para el mercado peruano: control de gastos, metas de ahorro y modelo freemium.</span><span class="en">A budgeting and financial-education app for the Peruvian market: expense tracking, savings goals, and a freemium model.</span></p>
+          <div class="tags"><span class="tag">Flutter</span><span class="tag">Riverpod</span><span class="tag">Drift</span></div>
+          <a class="card-link" href="#"><span class="es">Ver proyecto →</span><span class="en">View project →</span></a>
+        </article>
+        <article class="card">
+          <span class="kind">Kotlin Multiplatform</span>
+          <h3><span class="es">Módulos multiplataforma</span><span class="en">Cross-platform modules</span></h3>
+          <p><span class="es">Lógica de negocio compartida entre Android e iOS para reducir duplicación y costo de mantenimiento.</span><span class="en">Shared business logic between Android and iOS to cut duplication and maintenance cost.</span></p>
+          <div class="tags"><span class="tag">KMP</span><span class="tag">Kotlin</span></div>
+          <a class="card-link" href="#"><span class="es">Ver proyecto →</span><span class="en">View project →</span></a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="notes">
+    <div class="wrap reveal">
+      <div class="sec-head"><span class="eyebrow">05</span><h2><span class="es">Aprender y enseñar código</span><span class="en">Learning &amp; teaching code</span></h2>
+        <p><span class="es">Charlas que preparé y di a mi equipo en la Semana Digital. Enseñar un concepto es la mejor prueba de que se entiende.</span><span class="en">Talks I prepared and gave to my team at our internal Digital Week. Teaching a concept is the best proof of understanding it.</span></p></div>
+      <div class="notes-grid">
+        <article class="card">
+          <span class="kind">Talk · Clean Code</span>
+          <h3><span class="es">Clean Code: 6 prácticas para no odiar tu propio código</span><span class="en">Clean Code: 6 practices so you don't hate your own code</span></h3>
+          <p><span class="es">Nombres claros, funciones cortas, evitar anidaciones, números mágicos y código muerto. Con un caso real: "¿quién escribió esto? yo, hace seis meses".</span><span class="en">Clear names, short functions, no deep nesting, no magic numbers, no dead code. With a real hook: "who wrote this? me, six months ago".</span></p>
+          <a class="card-link" href="Charla_CleanCode_Irvin.pdf" target="_blank" rel="noopener"><span class="es">Ver charla →</span><span class="en">View talk →</span></a>
+        </article>
+        <article class="card">
+          <span class="kind">Talk · SOLID</span>
+          <h3><span class="es">Entendiendo los principios SOLID</span><span class="en">Understanding the SOLID principles</span></h3>
+          <p><span class="es">Los 5 principios explicados de forma simple y con metáforas, para escribir código organizado, fácil de leer y de mantener.</span><span class="en">The 5 principles explained simply and with metaphors, to write organized code that's easy to read and maintain.</span></p>
+          <a class="card-link" href="Charla_SOLID_Irvin.pdf" target="_blank" rel="noopener"><span class="es">Ver charla →</span><span class="en">View talk →</span></a>
+        </article>
+        <article class="card add"><span class="mono"><span class="es">+ Próxima charla</span><span class="en">+ Next talk</span></span></article>
+      </div>
+    </div>
+  </section>
+
+  <section id="stack">
+    <div class="wrap reveal">
+      <div class="sec-head"><span class="eyebrow">06</span><h2>Stack</h2></div>
+      <div class="stack">
+        <span class="chip">Kotlin</span><span class="chip">Dart</span><span class="chip">Swift</span>
+        <span class="chip">Jetpack Compose</span><span class="chip">Kotlin Multiplatform</span><span class="chip">Flutter</span>
+        <span class="chip">SwiftUI</span><span class="chip">REST APIs</span><span class="chip">Ktor / Node</span>
+        <span class="chip">Git</span><span class="chip">Clean Architecture</span><span class="chip">SOLID</span>
+        <span class="chip">AI Agents</span><span class="chip">Orchestration</span><span class="chip">Prompt Engineering</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <div class="wrap reveal">
+      <span class="eyebrow">07</span>
+      <h2><span class="es">Conversemos</span><span class="en">Let's talk</span></h2>
+      <p><span class="es">Abierto a trabajo remoto y freelance en desarrollo mobile, revisión de código y evaluación de IA.</span><span class="en">Open to remote and freelance work in mobile development, code review, and AI evaluation.</span></p>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="https://www.linkedin.com/in/igongora/" target="_blank" rel="noopener">LinkedIn →</a>
+        <a class="btn btn-ghost" href="https://github.com/irvinjoao19" target="_blank" rel="noopener">GitHub</a>
+        <a class="btn btn-ghost" href="mailto:gongorairvin@gmail.com"><span class="es">Correo</span><span class="en">Email</span></a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="socials">
+      <a href="https://github.com/irvinjoao19" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 24 24"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.2.8-.5v-2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17 4.4 18 4.7 18 4.7c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .3.2.6.8.5 4.6-1.5 7.9-5.8 7.9-10.9C23.5 5.7 18.3.5 12 .5z"/></svg></a>
+      <a href="https://www.linkedin.com/in/igongora/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M4.98 3.5a2.5 2.5 0 11-.01 5.01A2.5 2.5 0 014.98 3.5zM3 9h4v12H3V9zm6 0h3.8v1.7h.1c.5-1 1.8-2 3.7-2 4 0 4.7 2.6 4.7 6V21h-4v-5.3c0-1.3 0-2.9-1.8-2.9s-2 1.4-2 2.8V21H9V9z"/></svg></a>
+      <a href="mailto:gongorairvin@gmail.com" aria-label="Email"><svg viewBox="0 0 24 24"><path d="M2 4h20a1 1 0 011 1v14a1 1 0 01-1 1H2a1 1 0 01-1-1V5a1 1 0 011-1zm10 7L3.5 5.8 3 6l9 5.5L21 6l-.5-.2L12 11z"/></svg></a>
+    </div>
+    <span>© <span id="yr"></span> Irvin Gongora Hernandez · Lima, Perú</span>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+  const body = document.body, bEs = document.getElementById('btnEs'), bEn = document.getElementById('btnEn');
+  function setLang(l){
+    body.classList.toggle('lang-es', l==='es');
+    body.classList.toggle('lang-en', l==='en');
+    document.documentElement.lang = l;
+    bEs.classList.toggle('active', l==='es');
+    bEn.classList.toggle('active', l==='en');
+  }
+  bEs.addEventListener('click', ()=>setLang('es'));
+  bEn.addEventListener('click', ()=>setLang('en'));
+
+  const reduce = window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+  if(!reduce && 'IntersectionObserver' in window){
+    const io = new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.1});
+    document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+  } else { document.querySelectorAll('.reveal').forEach(el=>el.classList.add('in')); }
+</script>
+</body>
+</html>

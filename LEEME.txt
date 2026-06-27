@@ -1,0 +1,30 @@
+PÁGINA WEB DE IRVIN GONGORA HERNANDEZ
+=====================================
+
+CONTENIDO DE ESTA CARPETA (manténlos todos juntos):
+- index.html ................ tu página web
+- avatar.png ................ tu foto (no cambies el nombre)
+- Charla_SOLID_Irvin.pdf .... tu charla de SOLID (enlazada desde la web)
+- Charla_CleanCode_Irvin.pdf  tu charla de Clean Code (enlazada desde la web)
+
+(Opcional) Si agregas tu CV con el nombre exacto "CV.pdf" en esta carpeta,
+el botón "Ver CV" de la página funcionará.
+
+CÓMO PUBLICARLA GRATIS
+----------------------
+Opción A — GitHub Pages (recomendada):
+  1. Crea un repositorio público llamado  irvinjoao19.github.io
+  2. Sube TODOS los archivos de esta carpeta (index.html, avatar.png y los PDF).
+  3. Settings -> Pages -> Branch: main, carpeta /root -> Save.
+  4. En 1-2 minutos estará en:  https://irvinjoao19.github.io
+
+Opción B — Sin terminal:
+  Entra a Netlify Drop (app.netlify.com/drop) o Cloudflare Pages,
+  arrastra ESTA carpeta completa y te dan la URL al instante.
+
+Esa URL la pegas en el campo "personal website" de Outlier.
+
+IMPORTANTE: sube la carpeta COMPLETA. Si subes solo el index.html sin
+avatar.png ni los PDF, no se verá tu foto ni se abrirán las charlas.
+
+CAMBIAR IDIOMA: el botón ES / EN arriba a la derecha cambia toda la página.
