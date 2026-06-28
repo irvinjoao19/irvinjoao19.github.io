@@ -95,6 +95,19 @@
   .cc-body{padding:13px 16px;font-size:.82rem;line-height:1.95;color:#D7E4DF;overflow-x:auto}
   .cc-bad .cc-body{opacity:.8}
 
+  /* featured project with screenshots */
+  .feat{background:linear-gradient(180deg,var(--card),var(--bg-2));border:1px solid var(--line);border-radius:var(--radius);padding:26px;margin-bottom:18px}
+  .feat h3{font-family:"Space Grotesk",sans-serif;font-size:1.32rem;font-weight:600;margin:6px 0 4px}
+  .feat>p{color:var(--muted);font-size:.96rem;max-width:62ch}
+  .feat-list{list-style:none;margin:14px 0 6px;display:grid;gap:7px}
+  .feat-list li{position:relative;padding-left:18px;color:var(--muted);font-size:.9rem}
+  .feat-list li::before{content:"›";position:absolute;left:2px;color:var(--blue-2);font-weight:700}
+  .feat .status{font-size:.78rem;color:var(--dim);margin-top:12px;font-family:"JetBrains Mono",monospace}
+  .shots{display:flex;gap:14px;overflow-x:auto;padding:20px 2px 8px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch}
+  .shot{flex:0 0 auto;width:182px;border-radius:20px;overflow:hidden;border:1px solid var(--line);scroll-snap-align:start;background:#000;box-shadow:0 10px 30px rgba(0,0,0,.35)}
+  .shot img{display:block;width:100%;height:auto}
+  .shots-hint{text-align:center;color:var(--dim);font-size:.74rem;margin-top:2px}
+
   .cards{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
   .notes-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
   .card{background:linear-gradient(180deg,var(--card),var(--bg-2));border:1px solid var(--line);border-radius:var(--radius);padding:22px;display:flex;flex-direction:column;gap:9px;transition:transform .18s,border-color .18s,box-shadow .18s}
@@ -347,8 +360,50 @@
 
   <section id="work">
     <div class="wrap reveal">
-      <div class="sec-head"><span class="eyebrow">04</span><h2><span class="es">Proyectos</span><span class="en">Projects</span></h2>
-        <p><span class="es">Reemplaza estos por los tuyos reales con sus enlaces. Con uno o dos buenos basta.</span><span class="en">Replace these with your real ones and links. One or two strong projects is enough.</span></p></div>
+      <div class="sec-head"><span class="eyebrow">04</span><h2><span class="es">Proyectos</span><span class="en">Projects</span></h2></div>
+
+      <article class="feat reveal">
+        <span class="kind">Flutter · iOS &amp; Android</span>
+        <h3><span class="es">App de Gestión de Mantenimiento (CMMS)</span><span class="en">Maintenance Management App (CMMS)</span></h3>
+        <p><span class="es">App móvil para gestión de mantenimiento industrial usada en planta por técnicos y contratistas: órdenes de trabajo, avisos, planes de mantenimiento preventivo, lecturas de contadores, registro de parámetros y adjuntos con fotos.</span><span class="en">A mobile app for industrial maintenance, used on-site by technicians and contractors: work orders, notices, preventive maintenance plans, meter readings, parameter logging, and photo attachments.</span></p>
+        <ul class="feat-list">
+          <li><span class="es"><strong>Máquina de estados</strong> para el ciclo de vida de las órdenes (emitido → cierre técnico → cierre total), con validación de acciones según rol y estado.</span><span class="en"><strong>State machine</strong> for the work-order lifecycle (issued → technical close → full close), validating actions by role and current state.</span></li>
+          <li><span class="es"><strong>Trabajo en campo:</strong> permisos dinámicos de cámara/galería/almacenamiento (Android 10+), descarga y compartir de adjuntos remotos (PDF, imágenes) con manejo de MIME.</span><span class="en"><strong>Field-ready:</strong> dynamic camera/gallery/storage permissions (Android 10+), download and share of remote attachments (PDF, images) with MIME handling.</span></li>
+          <li><span class="es"><strong>Distribución privada</strong> (iOS Unlisted, Android APK/Internal) que protege las APIs corporativas, sin exposición pública.</span><span class="en"><strong>Private distribution</strong> (iOS Unlisted, Android APK/Internal) protecting the corporate APIs, with no public exposure.</span></li>
+          <li><span class="es"><strong>Mi rol:</strong> desarrollador único — arquitectura, todos los módulos, el sistema de diseño y la distribución en ambas plataformas.</span><span class="en"><strong>My role:</strong> sole developer — architecture, all modules, the design system, and distribution on both platforms.</span></li>
+        </ul>
+        <div class="tags"><span class="tag">Flutter</span><span class="tag">Dart</span><span class="tag">iOS</span><span class="tag">Android</span><span class="tag">State Machine</span></div>
+        <div class="shots">
+          <div class="shot"><img src="alpha-login.jpg" alt="Login" loading="lazy" /></div>
+          <div class="shot"><img src="alpha-ot.jpg" alt="Órdenes de trabajo" loading="lazy" /></div>
+          <div class="shot"><img src="alpha-detalle.jpg" alt="Detalle de orden y plan de mantenimiento" loading="lazy" /></div>
+          <div class="shot"><img src="alpha-contadores.jpg" alt="Parámetros y contadores" loading="lazy" /></div>
+        </div>
+        <p class="shots-hint"><span class="es">← desliza para ver más →</span><span class="en">← swipe to see more →</span></p>
+        <p class="status"><span class="es">Cliente: Alpha Manufacturas · Distribución privada (uso industrial)</span><span class="en">Client: Alpha Manufacturas · Private distribution (industrial use)</span></p>
+      </article>
+
+      <article class="feat reveal">
+        <span class="kind">Flutter · iOS &amp; Android · Offline-first</span>
+        <h3><span class="es">Fivesys Palmas — Auditorías de campo (5S)</span><span class="en">Fivesys Palmas — Field audits (5S)</span></h3>
+        <p><span class="es">App empresarial para auditorías de campo e inversiones en el sector agroindustrial. Los inspectores registran y dan seguimiento a observaciones con evidencia fotográfica, en línea y sin conexión, desde el formulario hasta el reporte final.</span><span class="en">A business app for field audits and investments in the agro-industrial sector. Inspectors record and follow up observations with photo evidence, online and offline, from the form to the final report.</span></p>
+        <ul class="feat-list">
+          <li><span class="es"><strong>Offline-first con sincronización ZIP:</strong> descarga todo el dataset como ZIP, lo extrae con barra de progreso en tiempo real, lo persiste en SQLite local y sincroniza en batch al volver online.</span><span class="en"><strong>Offline-first with ZIP sync:</strong> downloads the whole dataset as a ZIP, extracts it with a real-time progress bar, persists it in local SQLite, and syncs in batch once back online.</span></li>
+          <li><span class="es"><strong>Doble modo online/offline</strong> detectado en tiempo real, con lógica de guardado distinta para cada uno.</span><span class="en"><strong>Dual online/offline mode</strong> detected in real time, with different saving logic for each.</span></li>
+          <li><span class="es"><strong>Evidencia fotográfica</strong> desde cámara o galería, con compresión antes del upload para zonas con poca conectividad; seguimiento de observaciones y reportes PDF con notificación push.</span><span class="en"><strong>Photo evidence</strong> from camera or gallery, compressed before upload for low-connectivity areas; observation follow-up and PDF reports with push notifications.</span></li>
+          <li><span class="es"><strong>Mi rol:</strong> desarrollo completo en solitario — arquitectura, todas las capas (data, domain, UI), integración con API REST y publicación de los builds.</span><span class="en"><strong>My role:</strong> sole developer — architecture, all layers (data, domain, UI), REST API integration, and build publishing.</span></li>
+        </ul>
+        <div class="tags"><span class="tag">Flutter</span><span class="tag">GetX</span><span class="tag">Clean Architecture</span><span class="tag">Floor / SQLite</span><span class="tag">Offline</span></div>
+        <div class="shots">
+          <div class="shot"><img src="alpha2-login.jpg" alt="Login Five SYS" loading="lazy" /></div>
+          <div class="shot"><img src="alpha2-auditorias.jpg" alt="Lista de auditorías" loading="lazy" /></div>
+          <div class="shot"><img src="alpha2-obs.jpg" alt="Observación con evidencia y scoring 5S" loading="lazy" /></div>
+          <div class="shot"><img src="alpha2-form.jpg" alt="Formulario de observación" loading="lazy" /></div>
+        </div>
+        <p class="shots-hint"><span class="es">← desliza para ver más →</span><span class="en">← swipe to see more →</span></p>
+        <p class="status"><span class="es">Cliente: Alpha Manufacturas · v1.2.5 · Distribución privada (uso industrial)</span><span class="en">Client: Alpha Manufacturas · v1.2.5 · Private distribution (industrial use)</span></p>
+      </article>
+
       <div class="cards">
         <article class="card">
           <span class="kind">Flutter</span>
