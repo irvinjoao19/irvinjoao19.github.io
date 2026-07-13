@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Irvin Gongora Hernandez — Mobile Software Engineer</title>
-<meta name="description" content="Ingeniero de software mobile en Lima, Perú. Kotlin, Kotlin Multiplatform y Flutter." />
+<meta name="description" content="Mobile software engineer from Lima, Peru. Building apps with Kotlin, Kotlin Multiplatform &amp; Flutter." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
@@ -127,6 +127,7 @@
   .contact{text-align:center}
   .contact h2{font-family:"Space Grotesk",sans-serif;font-size:clamp(1.7rem,4vw,2.4rem);font-weight:600;letter-spacing:-.02em;margin-bottom:12px}
   .contact p{color:var(--muted);max-width:44ch;margin:0 auto 24px}
+  .tz{font-family:"JetBrains Mono",monospace;font-size:.78rem;color:var(--dim);margin-bottom:20px}
   footer{border-top:1px solid var(--line-2);padding:24px 0;text-align:center;color:var(--dim);font-size:.82rem}
   footer .socials{margin:0 0 14px}
 
@@ -168,7 +169,7 @@
   }
 </style>
 </head>
-<body class="lang-es">
+<body class="lang-en">
 
 <header class="topbar">
   <div class="wrap topbar-in">
@@ -182,8 +183,8 @@
       <a href="#contact"><span class="es">Contacto</span><span class="en">Contact</span></a>
     </nav>
     <div class="lang-switch" role="group" aria-label="Language / Idioma">
-      <button id="btnEs" class="active" type="button">ES</button>
-      <button id="btnEn" type="button">EN</button>
+      <button id="btnEs" type="button">ES</button>
+      <button id="btnEn" class="active" type="button">EN</button>
     </div>
   </div>
 </header>
@@ -210,7 +211,6 @@
 
       <div class="hero-cta">
         <a class="btn btn-primary" href="https://www.linkedin.com/in/igongora/" target="_blank" rel="noopener"><span class="es">Conecta en LinkedIn →</span><span class="en">Connect on LinkedIn →</span></a>
-        <a class="btn btn-ghost" href="CV.pdf" target="_blank" rel="noopener"><span class="es">Ver CV</span><span class="en">View résumé</span></a>
       </div>
     </div>
   </section>
@@ -404,20 +404,28 @@
         <p class="status"><span class="es">Cliente: Alpha Manufacturas · v1.2.5 · Distribución privada (uso industrial)</span><span class="en">Client: Alpha Manufacturas · v1.2.5 · Private distribution (industrial use)</span></p>
       </article>
 
+      <article class="feat reveal">
+        <span class="kind">Android Nativo · Kotlin · Offline-first</span>
+        <h3><span class="es">AppResguardoJS — Gestión de cuadrillas de seguridad</span><span class="en">AppResguardoJS — Security crew operations</span></h3>
+        <p><span class="es">App Android nativa para la gestión operativa de cuadrillas de seguridad en campo. Registra, firma digitalmente y sincroniza partes diarios de trabajo con un servidor central — desde la apertura de jornada hasta el cierre con firma multi-rol.</span><span class="en">Native Android app for managing security guard crews in the field. Records, digitally signs, and syncs daily work reports with a central server — from shift open to multi-role digital close.</span></p>
+        <ul class="feat-list">
+          <li><span class="es"><strong>Offline-first con cola de sincronización:</strong> toda la escritura va primero a Room; un campo de estado (1 = pendiente → 5 = enviado) controla qué registros se suben, procesados en secuencia con <code>Observable.flatMap</code> sobre RxJava 3.</span><span class="en"><strong>Offline-first with sync queue:</strong> all writes go to Room first; a status field (1 = pending → 5 = sent) controls which records to upload, processed in order via <code>Observable.flatMap</code> on RxJava 3.</span></li>
+          <li><span class="es"><strong>GPS + batería en background sin consumo excesivo:</strong> WorkManager con HiltWorker ejecuta ciclos captura → persistencia local → envío en un único pipeline RxJava; si el envío falla, el dato queda y se reintenta en el siguiente ciclo.</span><span class="en"><strong>Background GPS + battery without drain:</strong> WorkManager with HiltWorker runs capture → persist → send in a single RxJava pipeline; if the send fails, data is retained and retried next cycle.</span></li>
+          <li><span class="es"><strong>Firma digital multi-rol con geolocalización:</strong> cada firma (hasta 3 por parte diario) captura coordenadas, dirección y timestamp simultáneamente vía FusedLocationProvider durante el evento de firma en canvas.</span><span class="en"><strong>Multi-role digital signature with geolocation:</strong> each signature (up to 3 per report) simultaneously captures coordinates, address, and timestamp via FusedLocationProvider during the canvas signing event.</span></li>
+          <li><span class="es"><strong>Migración KAPT → KSP:</strong> eliminación de kapt para Room y Hilt, reduciendo el tiempo de compilación incremental; actualización a targetSdk 36 con soporte Material 3 edge-to-edge.</span><span class="en"><strong>KAPT → KSP migration:</strong> removed kapt for Room and Hilt, cutting incremental build times; updated to targetSdk 36 with Material 3 edge-to-edge support.</span></li>
+          <li><span class="es"><strong>Mi rol:</strong> desarrollador Android único — arquitectura MVVM + Repository, todas las capas, workers, integración REST y Socket.IO, y mantenimiento de todas las versiones.</span><span class="en"><strong>My role:</strong> sole Android developer — MVVM + Repository architecture, all layers, workers, REST &amp; Socket.IO integration, and maintenance across all versions.</span></li>
+        </ul>
+        <div class="tags"><span class="tag">Kotlin 2.3</span><span class="tag">MVVM</span><span class="tag">Room + RxJava 3</span><span class="tag">WorkManager</span><span class="tag">Hilt</span><span class="tag">Google Maps</span><span class="tag">Socket.IO</span><span class="tag">Paging 3</span></div>
+        <p class="status"><span class="es">Distribución privada · Screenshots próximamente</span><span class="en">Private distribution · Screenshots coming soon</span></p>
+      </article>
+
       <div class="cards">
         <article class="card">
           <span class="kind">Flutter</span>
           <h3><span class="es">App de Finanzas Personales</span><span class="en">Personal Finance App</span></h3>
           <p><span class="es">App de presupuesto y educación financiera para el mercado peruano: control de gastos, metas de ahorro y modelo freemium.</span><span class="en">A budgeting and financial-education app for the Peruvian market: expense tracking, savings goals, and a freemium model.</span></p>
           <div class="tags"><span class="tag">Flutter</span><span class="tag">Riverpod</span><span class="tag">Drift</span></div>
-          <a class="card-link" href="#"><span class="es">Ver proyecto →</span><span class="en">View project →</span></a>
-        </article>
-        <article class="card">
-          <span class="kind">Kotlin Multiplatform</span>
-          <h3><span class="es">Módulos multiplataforma</span><span class="en">Cross-platform modules</span></h3>
-          <p><span class="es">Lógica de negocio compartida entre Android e iOS para reducir duplicación y costo de mantenimiento.</span><span class="en">Shared business logic between Android and iOS to cut duplication and maintenance cost.</span></p>
-          <div class="tags"><span class="tag">KMP</span><span class="tag">Kotlin</span></div>
-          <a class="card-link" href="#"><span class="es">Ver proyecto →</span><span class="en">View project →</span></a>
+          <span class="mono" style="font-size:.75rem;color:var(--dim)">// in progress</span>
         </article>
       </div>
     </div>
@@ -463,6 +471,7 @@
       <span class="eyebrow">07</span>
       <h2><span class="es">Conversemos</span><span class="en">Let's talk</span></h2>
       <p><span class="es">Abierto a trabajo remoto y freelance en desarrollo mobile, revisión de código y evaluación de IA.</span><span class="en">Open to remote and freelance work in mobile development, code review, and AI evaluation.</span></p>
+      <p class="tz"><span class="es">Lima, Perú · UTC−5 · Compatible con horario de EE.UU.</span><span class="en">Lima, Peru · UTC−5 · Matches US East Coast hours</span></p>
       <div class="hero-cta">
         <a class="btn btn-primary" href="https://www.linkedin.com/in/igongora/" target="_blank" rel="noopener">LinkedIn →</a>
         <a class="btn btn-ghost" href="https://github.com/irvinjoao19" target="_blank" rel="noopener">GitHub</a>
