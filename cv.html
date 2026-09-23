@@ -25,6 +25,12 @@
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
+    /* Preserve colors when printing to PDF */
+    * {
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+    }
+
     body {
       font-family: 'Inter', system-ui, sans-serif;
       background: #e5e7eb;
@@ -219,7 +225,8 @@
 
     /* ── Print ── */
     @media print {
-      body { background: #fff; }
+      @page { margin: 0; }
+      body { background: #fff; padding: 12mm 14mm; }
       .print-bar { display: none; }
       .page {
         margin: 0;
