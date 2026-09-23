@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Irvin Gongora — CV</title>
+  <meta name="description" content="CV of Irvin Gongora Hernandez — Mobile Software Engineer" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #ffffff;
+      --surface: #f8f9fa;
+      --border: #e5e7eb;
+      --text: #111827;
+      --text-muted: #6b7280;
+      --accent: #0f172a;
+      --accent-light: #1e40af;
+      --tag-bg: #eff6ff;
+      --tag-color: #1e40af;
+      --tag-border: #bfdbfe;
+      --print-gap: 0.6rem;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: #e5e7eb;
+      color: var(--text);
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    /* ── Print button (hidden in print) ── */
+    .print-bar {
+      background: var(--accent);
+      color: #fff;
+      padding: 10px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+    }
+    .print-bar span { font-size: 13px; opacity: 0.7; }
+    .btn-print {
+      background: #2563eb;
+      color: #fff;
+      border: none;
+      padding: 8px 20px;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      font-family: inherit;
+      letter-spacing: 0.02em;
+    }
+    .btn-print:hover { background: #1d4ed8; }
+
+    /* ── Page wrapper ── */
+    .page {
+      max-width: 860px;
+      margin: 24px auto;
+      background: var(--bg);
+      box-shadow: 0 4px 24px rgba(0,0,0,0.12);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    /* ── Header ── */
+    header {
+      background: var(--accent);
+      color: #fff;
+      padding: 40px 48px 36px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 24px;
+      align-items: start;
+    }
+    .header-name { font-size: 30px; font-weight: 700; letter-spacing: -0.5px; }
+    .header-title {
+      font-size: 15px;
+      font-weight: 400;
+      color: #93c5fd;
+      margin-top: 4px;
+      letter-spacing: 0.02em;
+    }
+    .header-summary {
+      margin-top: 14px;
+      font-size: 13px;
+      color: #cbd5e1;
+      max-width: 520px;
+      line-height: 1.65;
+    }
+    .header-contact {
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+      align-items: flex-end;
+      font-size: 12.5px;
+      color: #cbd5e1;
+      white-space: nowrap;
+    }
+    .header-contact a { color: #93c5fd; text-decoration: none; }
+    .header-contact a:hover { color: #fff; }
+    .header-contact .icon { display: inline; margin-right: 5px; }
+
+    /* ── Body layout ── */
+    .body { display: grid; grid-template-columns: 1fr 260px; }
+
+    /* ── Main column ── */
+    main { padding: 36px 40px 40px; border-right: 1px solid var(--border); }
+
+    /* ── Sidebar ── */
+    aside { padding: 36px 28px 40px; background: var(--surface); }
+
+    /* ── Section ── */
+    section { margin-bottom: 32px; }
+    section:last-child { margin-bottom: 0; }
+
+    .section-title {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+      padding-bottom: 7px;
+      border-bottom: 2px solid var(--accent);
+      display: inline-block;
+    }
+
+    /* ── Experience entry ── */
+    .entry { margin-bottom: 22px; }
+    .entry:last-child { margin-bottom: 0; }
+    .entry-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .entry-company { font-weight: 700; font-size: 14px; color: var(--accent); }
+    .entry-date {
+      font-size: 11.5px;
+      color: var(--text-muted);
+      white-space: nowrap;
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .entry-role {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--accent-light);
+      margin-top: 2px;
+    }
+    .entry-location {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: 1px;
+    }
+    .entry-bullets {
+      margin-top: 8px;
+      padding-left: 16px;
+      list-style: disc;
+    }
+    .entry-bullets li {
+      font-size: 13px;
+      color: #374151;
+      margin-bottom: 3px;
+      line-height: 1.55;
+    }
+    .entry-bullets li::marker { color: var(--accent-light); }
+
+    /* ── Project card ── */
+    .project { margin-bottom: 20px; }
+    .project:last-child { margin-bottom: 0; }
+    .project-name { font-weight: 700; font-size: 13.5px; color: var(--accent); }
+    .project-client { font-size: 12px; color: var(--text-muted); margin-top: 1px; }
+    .project-desc { font-size: 13px; color: #374151; margin-top: 5px; line-height: 1.55; }
+    .tag-row { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 7px; }
+    .tag {
+      background: var(--tag-bg);
+      color: var(--tag-color);
+      border: 1px solid var(--tag-border);
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-size: 11px;
+      font-weight: 500;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    /* ── Sidebar: skill group ── */
+    .skill-group { margin-bottom: 20px; }
+    .skill-group:last-child { margin-bottom: 0; }
+    .skill-group-title { font-size: 12px; font-weight: 700; color: var(--text); margin-bottom: 7px; }
+    .skill-tags { display: flex; flex-wrap: wrap; gap: 5px; }
+    .skill-tag {
+      background: #fff;
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 3px 9px;
+      border-radius: 4px;
+      font-size: 11.5px;
+      font-weight: 500;
+    }
+
+    /* ── Sidebar: talks ── */
+    .talk { margin-bottom: 12px; }
+    .talk:last-child { margin-bottom: 0; }
+    .talk-title { font-size: 12.5px; font-weight: 600; color: var(--accent); line-height: 1.4; }
+    .talk-venue { font-size: 11.5px; color: var(--text-muted); margin-top: 2px; }
+
+    /* ── Sidebar: text ── */
+    .aside-text { font-size: 12.5px; color: #374151; line-height: 1.6; }
+    .aside-item { margin-bottom: 7px; display: flex; align-items: baseline; gap: 6px; }
+    .aside-label { font-size: 11px; font-weight: 700; text-transform: uppercase; color: var(--text-muted); width: 60px; flex-shrink: 0; }
+    .aside-value { font-size: 12.5px; color: var(--text); }
+
+    /* ── Print ── */
+    @media print {
+      body { background: #fff; }
+      .print-bar { display: none; }
+      .page {
+        margin: 0;
+        box-shadow: none;
+        border-radius: 0;
+        max-width: 100%;
+      }
+      header { padding: 28px 36px 24px; }
+      main { padding: 24px 32px 28px; }
+      aside { padding: 24px 22px 28px; }
+      section { margin-bottom: var(--print-gap); page-break-inside: avoid; }
+      .entry { page-break-inside: avoid; }
+      .project { page-break-inside: avoid; }
+    }
+
+    @media (max-width: 640px) {
+      .body { grid-template-columns: 1fr; }
+      main { border-right: none; border-bottom: 1px solid var(--border); }
+      header { grid-template-columns: 1fr; }
+      .header-contact { align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="print-bar" id="printBar">
+    <span>irvinjoao19.github.io · Irvin Gongora — CV</span>
+    <button class="btn-print" onclick="window.print()">Download / Print PDF</button>
+  </div>
+
+  <div class="page">
+
+    <!-- ═══════════════ HEADER ═══════════════ -->
+    <header>
+      <div>
+        <div class="header-name">Irvin Gongora Hernandez</div>
+        <div class="header-title">Mobile Software Engineer · Android · KMP · Flutter</div>
+        <p class="header-summary">
+          Building mobile software since 2017 — from field apps to reusable framework libraries.
+          Currently crafting shared Kotlin libraries (networking, QR, storage, crypto, UI) consumed
+          across product squads at Peru's largest bank. Fluent in Clean Architecture, offline-first
+          patterns, and evaluating AI output critically before shipping.
+        </p>
+      </div>
+      <div class="header-contact">
+        <div><span class="icon">✉</span><a href="mailto:gongorairvin@gmail.com">gongorairvin@gmail.com</a></div>
+        <div><span class="icon">🔗</span><a href="https://www.linkedin.com/in/igongora/" target="_blank">linkedin.com/in/igongora</a></div>
+        <div><span class="icon">⌥</span><a href="https://github.com/irvinjoao19" target="_blank">github.com/irvinjoao19</a></div>
+        <div><span class="icon">🌐</span><a href="https://irvinjoao19.github.io" target="_blank">irvinjoao19.github.io</a></div>
+        <div><span class="icon">📍</span>Lima, Peru · UTC−5</div>
+      </div>
+    </header>
+
+    <div class="body">
+
+      <!-- ═══════════════ MAIN ═══════════════ -->
+      <main>
+
+        <!-- Experience -->
+        <section>
+          <div class="section-title">Experience</div>
+
+          <div class="entry">
+            <div class="entry-header">
+              <div class="entry-company">Banco de Crédito del Perú (BCP)</div>
+              <div class="entry-date">2023 — Present</div>
+            </div>
+            <div class="entry-role">Mobile Framework Engineer</div>
+            <div class="entry-location">Lima, Peru</div>
+            <ul class="entry-bullets">
+              <li>Build and maintain shared Kotlin/KMP libraries (networking, QR, storage, crypto, UI) consumed by multiple product squads.</li>
+              <li>Diagnosed and resolved critical TLS connection failures in production using the Conscrypt library, restoring service reliability.</li>
+              <li>Drive library versioning strategy and inter-team adoption of reusable components.</li>
+            </ul>
+          </div>
+
+          <div class="entry">
+            <div class="entry-header">
+              <div class="entry-company">Wally POS</div>
+              <div class="entry-date">Jun 2022 — Jan 2023</div>
+            </div>
+            <div class="entry-role">Android Developer</div>
+            <div class="entry-location">Lima, Peru</div>
+            <ul class="entry-bullets">
+              <li>Developed and maintained a point-of-sale Android app covering billing, sales, and receipts.</li>
+              <li>Implemented MVVM architecture with Kotlin for clean separation of concerns.</li>
+            </ul>
+          </div>
+
+          <div class="entry">
+            <div class="entry-header">
+              <div class="entry-company">Grupo DSIGE</div>
+              <div class="entry-date">Oct 2017 — Jun 2022</div>
+            </div>
+            <div class="entry-role">Android Developer</div>
+            <div class="entry-location">Lima, Peru</div>
+            <ul class="entry-bullets">
+              <li>Built field operations apps for meter reading, sales, inspections, and delivery across utility and distribution clients.</li>
+              <li>Integrated Google Maps, GPS tracking, camera capture, and digital signatures into offline-capable Android apps.</li>
+              <li>Sole developer across multiple projects; owned architecture, REST integration, and release process.</li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- Projects -->
+        <section>
+          <div class="section-title">Selected Projects</div>
+
+          <div class="project">
+            <div class="project-name">CMMS — Maintenance Management App</div>
+            <div class="project-client">Alpha Manufacturas · Sole developer</div>
+            <div class="project-desc">
+              Cross-platform Flutter app for industrial maintenance — work orders, alerts, and preventive plans.
+              State machine for order lifecycle, dynamic permissions, remote attachments (PDF/images), and
+              private distribution (iOS Unlisted + Android Internal).
+            </div>
+            <div class="tag-row">
+              <span class="tag">Flutter</span>
+              <span class="tag">Dart</span>
+              <span class="tag">iOS</span>
+              <span class="tag">Android</span>
+              <span class="tag">Clean Architecture</span>
+            </div>
+          </div>
+
+          <div class="project">
+            <div class="project-name">Fivesys Palmas — 5S Field Audit App</div>
+            <div class="project-client">Alpha Manufacturas · Sole developer</div>
+            <div class="project-desc">
+              Enterprise Flutter app for agroindustrial field audits. Offline-first with ZIP-based sync,
+              SQLite persistence, photo evidence with compression, PDF reports, push notifications,
+              and real-time online/offline detection.
+            </div>
+            <div class="tag-row">
+              <span class="tag">Flutter</span>
+              <span class="tag">GetX</span>
+              <span class="tag">Floor/SQLite</span>
+              <span class="tag">Offline-first</span>
+              <span class="tag">REST</span>
+            </div>
+          </div>
+
+          <div class="project">
+            <div class="project-name">AppResguardoJS — Security Crew Management</div>
+            <div class="project-client">Sole developer</div>
+            <div class="project-desc">
+              Native Android app for field security crew operations. Offline-first sync queue,
+              background GPS without battery drain, multi-role digital signature with geolocation,
+              real-time Socket.IO updates, and paginated list views. Migrated from KAPT to KSP,
+              updated to targetSdk 36 with Material 3 edge-to-edge.
+            </div>
+            <div class="tag-row">
+              <span class="tag">Kotlin 2.3</span>
+              <span class="tag">MVVM</span>
+              <span class="tag">Room</span>
+              <span class="tag">RxJava 3</span>
+              <span class="tag">WorkManager</span>
+              <span class="tag">Hilt</span>
+              <span class="tag">Socket.IO</span>
+              <span class="tag">Google Maps</span>
+            </div>
+          </div>
+        </section>
+
+      </main>
+
+      <!-- ═══════════════ SIDEBAR ═══════════════ -->
+      <aside>
+
+        <!-- Info -->
+        <section>
+          <div class="section-title">Details</div>
+          <div class="aside-item"><span class="aside-label">Based</span><span class="aside-value">Lima, Peru</span></div>
+          <div class="aside-item"><span class="aside-label">Timezone</span><span class="aside-value">UTC−5 · US East hours</span></div>
+          <div class="aside-item"><span class="aside-label">Remote</span><span class="aside-value">Open worldwide</span></div>
+          <div class="aside-item"><span class="aside-label">Since</span><span class="aside-value">2017 (8 years)</span></div>
+        </section>
+
+        <!-- Skills -->
+        <section>
+          <div class="section-title">Skills</div>
+
+          <div class="skill-group">
+            <div class="skill-group-title">Languages</div>
+            <div class="skill-tags">
+              <span class="skill-tag">Kotlin</span>
+              <span class="skill-tag">Dart</span>
+              <span class="skill-tag">Swift</span>
+            </div>
+          </div>
+
+          <div class="skill-group">
+            <div class="skill-group-title">Frameworks</div>
+            <div class="skill-tags">
+              <span class="skill-tag">Jetpack Compose</span>
+              <span class="skill-tag">KMP</span>
+              <span class="skill-tag">Flutter</span>
+              <span class="skill-tag">SwiftUI</span>
+            </div>
+          </div>
+
+          <div class="skill-group">
+            <div class="skill-group-title">Architecture</div>
+            <div class="skill-tags">
+              <span class="skill-tag">Clean Architecture</span>
+              <span class="skill-tag">MVVM</span>
+              <span class="skill-tag">SOLID</span>
+              <span class="skill-tag">Repository Pattern</span>
+            </div>
+          </div>
+
+          <div class="skill-group">
+            <div class="skill-group-title">Libraries & Tools</div>
+            <div class="skill-tags">
+              <span class="skill-tag">Hilt</span>
+              <span class="skill-tag">RxJava 3</span>
+              <span class="skill-tag">Room</span>
+              <span class="skill-tag">WorkManager</span>
+              <span class="skill-tag">Riverpod</span>
+              <span class="skill-tag">Drift</span>
+              <span class="skill-tag">Ktor</span>
+              <span class="skill-tag">Socket.IO</span>
+              <span class="skill-tag">Retrofit</span>
+              <span class="skill-tag">Paging 3</span>
+            </div>
+          </div>
+
+          <div class="skill-group">
+            <div class="skill-group-title">Specialties</div>
+            <div class="skill-tags">
+              <span class="skill-tag">Offline-first</span>
+              <span class="skill-tag">Framework libs</span>
+              <span class="skill-tag">GPS / Maps</span>
+              <span class="skill-tag">Digital Signature</span>
+              <span class="skill-tag">AI Agent Design</span>
+              <span class="skill-tag">Prompt Engineering</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- Talks -->
+        <section>
+          <div class="section-title">Talks</div>
+
+          <div class="talk">
+            <div class="talk-title">Clean Code: 6 Practices to Not Hate Your Own Code</div>
+            <div class="talk-venue">Internal Tech Week · BCP</div>
+          </div>
+
+          <div class="talk">
+            <div class="talk-title">Understanding SOLID Principles</div>
+            <div class="talk-venue">Internal Tech Week · BCP</div>
+          </div>
+        </section>
+
+        <!-- Languages -->
+        <section>
+          <div class="section-title">Languages</div>
+          <div class="aside-item"><span class="aside-label">Spanish</span><span class="aside-value">Native</span></div>
+          <div class="aside-item"><span class="aside-label">English</span><span class="aside-value">Professional</span></div>
+        </section>
+
+      </aside>
+    </div><!-- /.body -->
+
+  </div><!-- /.page -->
+
+</body>
+</html>
